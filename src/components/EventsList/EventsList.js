@@ -8,7 +8,7 @@ class EventsList extends Component {
     sections,
   }
 
-  getListHeaderComponent = () => <Text style={styles.listHeader}>Events list</Text>
+  getListHeaderComponent = () => <Text style={styles.listHeader}>Events</Text>
 
   renderItem = ({ item }) => <Event event={item} />
 
