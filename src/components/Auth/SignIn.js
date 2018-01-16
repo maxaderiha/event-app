@@ -68,11 +68,11 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     fieldTitle: {
-        marginBottom: 5,
+        fontSize: 16,
     },
     fieldText: {
         fontSize: 18,
-        padding: 5,
+        padding: 10,
     },
 });
 
