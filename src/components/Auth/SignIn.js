@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View,
     Text,
@@ -13,14 +13,14 @@ class SignIn extends Component {
         password: '',
     };
 
-    onEmailChange = email => this.setState({email});
+    onEmailChange = email => this.setState({ email });
 
-    onPasswordChange = password => this.setState({password});
+    onPasswordChange = password => this.setState({ password });
 
     render() {
         return (
             <View style={styles.wrap}>
-                <Text style={styles.header}>Sign In</Text>
+                <Text style={styles.header}>Event app</Text>
                 <View style={styles.fieldWrap}>
                     <Text style={styles.fieldTitle}>Email:</Text>
                     <TextInput
@@ -41,9 +41,8 @@ class SignIn extends Component {
                 </View>
                 <Button
                     title="Sign In"
-                    color="#00BCD4"
-                    onPress={() => {
-                    }}
+                    color="#607D8B"
+                    onPress={() => { }}
                 />
             </View>
         );

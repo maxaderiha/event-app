@@ -179,7 +179,7 @@ const data = {
         "-L0wXUtvHqjqDTofs3SE": {
             "month": "April",
             "submissionDeadline": "",
-            "title": "26th International World Wide Web Conference, 2017",
+            "title": "International World Wide Web Conference, 2017",
             "url": "http://www.www2017.com.au/",
             "when": "April 3-7, 2017",
             "where": "Perth, Australia"
@@ -1353,7 +1353,7 @@ const data = {
         "-L0wXUyq4_K6FB23f-gE": {
             "month": "April",
             "submissionDeadline": "",
-            "title": "2016 DC-Baltimore Perl Workshop",
+            "title": "DC-Baltimore Perl Workshop 2016",
             "url": "http://dcbpw.org/dcbpw2016/",
             "when": "April 16th–17th, 2016",
             "where": "United States,Balitmore"
@@ -2333,10 +2333,35 @@ const data = {
 };
 
 function toArr(obj) {
-    return Object.entries(obj).map(([uid, value]) => ({uid, ...value}));
+    return Object.entries(obj).map(([uid, value]) => ({ uid, ...value }));
+}
+
+function getGroups(obj) {
+    const groups = {};
+
+    Object.entries(obj).forEach(([uid, values]) => {
+        if (values.title[0] in groups) {
+            groups[values.title[0]].push({ uid, ...values });
+        } else {
+            groups[values.title[0]] = [{ uid, ...values }];
+        }
+    });
+
+    return groups;
+}
+
+function getSections(obj) {
+    const sections = [];
+
+    Object.entries(obj).map(([key, data]) => {
+        sections.push({ title: `${key}, ${data.length}`, data });
+    });
+
+    return sections;
 }
 
 export const events = toArr(data.events);
 export const people = toArr(data.people);
 
-
+const groups = getGroups(data.events);
+export const sections = getSections(groups);

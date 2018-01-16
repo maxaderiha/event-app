@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {events} from '../../fixtures';
+import React, { Component } from 'react';
+import { events } from '../../fixtures';
 import {
     Text,
     View,
@@ -7,12 +7,8 @@ import {
 } from 'react-native';
 
 class Event extends Component {
-    static defaultProps = {
-        event: events[0],
-    };
-
     render() {
-        const {title, when, where} = this.props.event;
+        const { title, when, where } = this.props.event;
 
         return (
             <View style={styles.container}>
@@ -28,8 +24,8 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         padding: 10,
-        backgroundColor: '#CFD8DC',
-        elevation: 5
+        paddingLeft: 30,
+        backgroundColor: '#FFFFFF',
     },
     title: {
         fontSize: 18,
