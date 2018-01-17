@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    TextInput,
-    Button,
-    StyleSheet
-} from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
+import styles from './SingIn.style';
 
 class SignIn extends Component {
     state = {
@@ -48,32 +43,5 @@ class SignIn extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    wrap: {
-        borderTopColor: '#455A64',
-        borderTopWidth: 25,
-        backgroundColor: '#FFFFFF',
-        flex: 1,
-        width: '100%',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-    },
-    header: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#212121',
-    },
-    fieldWrap: {
-        width: '80%',
-    },
-    fieldTitle: {
-        fontSize: 16,
-    },
-    fieldText: {
-        fontSize: 18,
-        padding: 10,
-    },
-});
 
 export default SignIn;
