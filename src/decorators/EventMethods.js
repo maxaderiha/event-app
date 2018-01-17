@@ -6,10 +6,10 @@ export default (EventComponent) => class EventMethodsComponent extends Component
 
   }
 
-  onDeletePress = () => {
+  handleDeletePress = () => {
     Alert.alert(
       `Delete ${this.props.event.title} event`,
-      'Your sure?',
+      'Are you sure?',
       [
         { text: 'Yes', onPress: () => console.log('Yes pressed') },
         { text: 'No', onPress: () => console.log('No pressed') },
@@ -19,6 +19,6 @@ export default (EventComponent) => class EventMethodsComponent extends Component
   }
 
   render() {
-    return <EventComponent {...this.props} {...this.state} onDeletePress={this.onDeletePress} />;
+    return <EventComponent {...this.props} {...this.state} onDeletePress={this.handleDeletePress} />;
   }
 }

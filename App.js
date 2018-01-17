@@ -1,20 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Root from './src/components/Root/Root';
+import React, { Component } from 'react';
+import Navigator from './src/navigation';
 
-export default class App extends React.Component {
+export default class App extends Component {
     render() {
-        return (
-            <View style={styles.container}>
-                <Root />
-            </View>
-        );
+        return <Navigator />;
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
-});

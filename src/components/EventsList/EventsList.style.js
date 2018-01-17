@@ -3,16 +3,7 @@ import {DARK_PRIMARY, DIVIDER, PRIMARY, TEXT_ICONS, PRIMARY_TEXT, } from '../../
 
 export default StyleSheet.create({
   container: {
-    borderTopWidth: 25,
-    borderTopColor: DARK_PRIMARY,
-  },
-  listHeader: {
-    padding: 15,
-    paddingLeft: 10,
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: TEXT_ICONS,
-    backgroundColor: DARK_PRIMARY,
+    backgroundColor: TEXT_ICONS,
   },
   sectionHeader: {
     padding: 5,
@@ -22,7 +13,7 @@ export default StyleSheet.create({
     color: TEXT_ICONS,
   },
   separator: {
-    marginLeft: 30,
+    marginLeft: 25,
     height: 0.5,
     backgroundColor: DIVIDER,
   }

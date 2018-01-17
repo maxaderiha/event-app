@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     width: '100%',
     padding: 10,
-    paddingLeft: 30,
+    paddingLeft: 25,
     backgroundColor: TEXT_ICONS,
   },
   title: {
