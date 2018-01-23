@@ -1,4 +1,4 @@
-const data = {
+export const data = {
     "events": {
         "-L0wXUtKMBJVlj9EVHwV": {
             "month": "February",
@@ -2336,32 +2336,5 @@ function toArr(obj) {
     return Object.entries(obj).map(([uid, value]) => ({ uid, ...value }));
 }
 
-function getGroups(obj) {
-    const groups = {};
-
-    Object.entries(obj).forEach(([uid, values]) => {
-        if (values.title[0] in groups) {
-            groups[values.title[0]].push({ uid, ...values });
-        } else {
-            groups[values.title[0]] = [{ uid, ...values }];
-        }
-    });
-
-    return groups;
-}
-
-function getSections(obj) {
-    const sections = [];
-
-    Object.entries(obj).map(([key, data]) => {
-        sections.push({ title: `${key}, ${data.length}`, data });
-    });
-
-    return sections;
-}
-
 export const events = toArr(data.events);
 export const people = toArr(data.people);
-
-const groups = getGroups(data.events);
-export const sections = getSections(groups);

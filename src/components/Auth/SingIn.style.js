@@ -1,29 +1,25 @@
 import { StyleSheet } from 'react-native';
-import { DARK_PRIMARY, TEXT_ICONS } from '../../constants';
+import { DARK_PRIMARY, TEXT_ICONS, LIGHT_PRIMARY, PRIMARY } from '../../constants';
 
 export default StyleSheet.create({
     wrap: {
         borderTopColor: DARK_PRIMARY,
         borderTopWidth: 25,
-        backgroundColor: TEXT_ICONS,
+        backgroundColor: PRIMARY,
         flex: 1,
-        width: '100%',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center',
     },
-    header: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#212121',
-    },
-    fieldWrap: {
-        width: '80%',
-    },
-    fieldTitle: {
-        fontSize: 16,
+    form: {
+        justifyContent: 'space-between',
+        width: '85%',
+        height: 200,
     },
     fieldText: {
-        fontSize: 18,
-        padding: 10,
+        paddingVertical: 5,
+        fontSize: 20,
+        color: TEXT_ICONS,
+        borderBottomColor: TEXT_ICONS,
+        borderBottomWidth: 1.5,
     },
 });

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet, SectionList, Text, TouchableOpacity } from 'react-native';
 import EventCard from '../EventCard/EventCard';
-import { sections } from '../../fixtures';
+import { getGroups, getSections } from '../../utils'
 import styles from './EventsList.style';
 
 class EventsList extends Component {
-  static defaultProps = {
-    sections,
-  }
-
   renderItem = ({ item }) => (
     <TouchableOpacity onPress={this.props.onEventPress.bind(null, item.uid)}>
       <EventCard event={item} />
@@ -22,10 +18,12 @@ class EventsList extends Component {
   keyExtractor = item => item.uid
 
   render() {
+    const { events } = this.props;
+    
     return (
       <View style={styles.container}>
         <SectionList
-          sections={this.props.sections}
+          sections={events}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectionHeader}
           ItemSeparatorComponent={this.getItemSeparatorComponent}

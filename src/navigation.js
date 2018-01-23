@@ -4,11 +4,11 @@ import Event from './screens/Event/Event';
 import EventsList from './screens/EventsList/EventsList';
 
 const Navigator = StackNavigator({
-  eventsList: {
-    screen: EventsList,
-  },
   auth: {
     screen: Auth,
+  },
+  eventsList: {
+    screen: EventsList,
   },
   event: {
     screen: Event,

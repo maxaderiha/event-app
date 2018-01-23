@@ -1,45 +1,63 @@
 import React, { Component } from 'react';
-import { Button, Text, TextInput, View } from 'react-native';
+import { observer, inject } from 'mobx-react';
+import firebase from 'firebase';
+import { Button, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './SingIn.style';
+import { PRIMARY, TEXT_ICONS, LIGHT_PRIMARY } from '../../constants';
+import { NavigationActions } from 'react-navigation';
 
+@inject('user')
+@observer
 class SignIn extends Component {
-    state = {
-        email: '',
-        password: '',
-    };
+    onEmailChange = email => this.props.user.email = email;
 
-    onEmailChange = email => this.setState({ email });
+    onPasswordChange = password => this.props.user.password = password;
 
-    onPasswordChange = password => this.setState({ password });
+    signIn = () => {
+        const { user } = this.props;
+
+        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            .then(userData => {
+                user.currUser = userData;
+                user.redirectAfterSignIn('eventsList');
+            });
+    }
 
     render() {
+        const { email, password } = this.props.user;
+
         return (
-            <View style={styles.wrap}>
-                <Text style={styles.header}>Event app</Text>
-                <View style={styles.fieldWrap}>
-                    <Text style={styles.fieldTitle}>Email:</Text>
+            <KeyboardAvoidingView behavior="padding" style={styles.wrap}>
+                <View style={styles.form}>
                     <TextInput
                         keyboardType="email-address"
                         style={styles.fieldText}
-                        value={this.state.email}
+                        selectionColor={TEXT_ICONS}
+                        underlineColorAndroid='transparent'
+                        placeholderTextColor={LIGHT_PRIMARY}
+                        placeholder="Email"
+                        value={email}
                         onChangeText={this.onEmailChange}
                     />
-                </View>
-                <View style={styles.fieldWrap}>
-                    <Text style={styles.fieldTitle}>Password:</Text>
+
                     <TextInput
                         secureTextEntry
                         style={styles.fieldText}
-                        value={this.state.password}
+                        underlineColorAndroid='transparent'
+                        placeholderTextColor={LIGHT_PRIMARY}
+                        selectionColor={TEXT_ICONS}
+                        placeholder="Password"
+                        value={password}
                         onChangeText={this.onPasswordChange}
                     />
+                    <TouchableOpacity
+                        style={styles.btn}
+                        onPress={this.signIn}
+                    >
+                        <Text style={styles.btnText}>Sign In</Text>
+                    </TouchableOpacity>
                 </View>
-                <Button
-                    title="Sign In"
-                    color="#607D8B"
-                    onPress={() => { }}
-                />
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }

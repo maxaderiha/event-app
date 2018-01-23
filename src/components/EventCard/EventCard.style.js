@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY_TEXT, SECONDARY_TEXT, TEXT_ICONS } from '../../constants';
+import { PRIMARY_TEXT, SECONDARY_TEXT, TEXT_ICONS, DARK_PRIMARY } from '../../constants';
 
 export default StyleSheet.create({
   container: {
     width: '100%',
     padding: 10,
     paddingLeft: 25,
+    paddingRight: 60,
     backgroundColor: TEXT_ICONS,
   },
   title: {
@@ -17,10 +18,13 @@ export default StyleSheet.create({
     fontSize: 14,
     color: SECONDARY_TEXT,
   },
-  btn: {
+  btnWrap: {
     position: 'absolute',
-    padding: 5,
-    right: 10,
-    bottom: 25,
-  }
+    top: 0,
+    bottom: 0,
+    right: 0,
+    width: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

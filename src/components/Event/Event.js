@@ -13,10 +13,18 @@ class Event extends Component {
 
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.header}>{title}</Text>
-        <Text>month: {month}</Text>
-        <Text>when: {when}</Text>
-        <Text>where: {where}</Text>
+        <Text>
+          <Text style={styles.title}>Month: </Text>
+          {month}
+        </Text>
+        <Text>
+          <Text style={styles.title}>When: </Text>
+          {when}
+        </Text>
+        <Text>
+          <Text style={styles.title}>Where: </Text>
+          {where}
+        </Text>
       </ScrollView>
     );
   }
